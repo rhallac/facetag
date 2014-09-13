@@ -7,6 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Intent;
+
 import com.parse.FindCallback;
 import com.parse.LogInCallback;
 import com.parse.Parse;
@@ -17,12 +19,13 @@ import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
 public class ParseFunctions {
-	private List<ParseUser> games = new ArrayList<ParseUser>();
+	private static List<ParseUser> games = new ArrayList<ParseUser>();
 	public static ParseUser currentUser;
 	public static JSONObject currentGame;
 	static List<ParseUser> users = new ArrayList<ParseUser>();
 
-	public static void addUser(String name, String password) {
+	//moved to loginactivity
+	/*public static void addUser(String name, String password) {
 		  
 		// ParseUser user = new ParseUser();
 		 //ParseObject user = new ParseObject("User");
@@ -52,7 +55,7 @@ public class ParseFunctions {
 		     }
 		   }
 		 }); 
-	}
+	}*/
 	
 	public static void loginUser(String username, String password) {
 		ParseUser.logInInBackground(username, password, new LogInCallback() {
@@ -111,7 +114,7 @@ public class ParseFunctions {
 	}
 
 	
-	public List<ParseUser> getGamesForUser(String facebookId) {
+	public static List<ParseUser> getGamesForUser(String facebookId) {
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Users");
 		//List<ParseUser> games = new ArrayList<ParseUser>();
 		query.whereEqualTo("id", facebookId);
