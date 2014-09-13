@@ -145,6 +145,7 @@ public class ParseFunctions {
 	}
 
 	
+	
 	public static List getUsersForGame(String gameName) {
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Game");
 		query.whereEqualTo("name", gameName);
@@ -178,5 +179,39 @@ public class ParseFunctions {
 	public void getImagesForGame(String gameId) {
 		
 	}
+	
+	
+
+	//takes game name and user name and increment score --> CHECK
+	public static void checkUserGame(String gameName, String userName) {
+		ParseQuery<ParseObject> query = ParseQuery.getQuery("Game");
+		query.whereEqualTo("name", gameName);
+		query.whereEqualTo("username", userName);
+		query.findInBackground(new FindCallback<ParseObject>() {
+			@Override
+		  public void done(List<ParseObject> objects, ParseException e) {
+		    if (e == null) {
+		        // The query was successful.
+		    	if(objects.size() != 0) {
+		    		ParseObject gameScore = new ParseObject("score");
+		    		gameScore.increment("score");
+		    	}
+		    
+		    } else {
+		        // Something went wrong.
+		    	System.out.println("incrementing score" + e);
+		    	
+		    }
+			};
+		});
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

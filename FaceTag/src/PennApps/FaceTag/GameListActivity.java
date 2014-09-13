@@ -16,10 +16,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 //lists games and user profile
+
 public class GameListActivity extends Activity {
 	String currentUserName;
 	@Override
@@ -49,6 +51,7 @@ public class GameListActivity extends Activity {
 			((TextView) gameBlock.findViewById(R.id.groupName)).setText(name);
 		}
 		}
+		
 	}
 		 
 	@Override
@@ -58,4 +61,10 @@ public class GameListActivity extends Activity {
 		return true;
 	}
 
+	public void onClick(View v){
+		//check which button is clicked
+	/*	if (v.getId() == R.id.quit){
+		}
+		}*/
+}
 }
