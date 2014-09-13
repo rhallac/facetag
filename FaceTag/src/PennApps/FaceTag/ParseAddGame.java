@@ -14,7 +14,7 @@ public class ParseAddGame extends AsyncTask {
 
 	@Override
 	protected Object doInBackground(Object... arg0) {
-		 Parse.initialize((Context) arg0[0], "L6co5nhzzT7A9UvGcwAFbWV7WlSuw270GukGB0pq", "rXXwBQR639JmTTBm3cHbivV7NzKLRI09fmlYXWmV");
+//		 Parse.initialize((Context) arg0[0], "L6co5nhzzT7A9UvGcwAFbWV7WlSuw270GukGB0pq", "rXXwBQR639JmTTBm3cHbivV7NzKLRI09fmlYXWmV");
 		 
 		 //input: context, name, creator id
 		 String name = (String) arg0[1];
