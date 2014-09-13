@@ -20,6 +20,7 @@ public class ParseFunctions {
 	private List<ParseUser> games = new ArrayList<ParseUser>();
 	public static ParseUser currentUser;
 	public static JSONObject currentGame;
+	static List<ParseUser> users = new ArrayList<ParseUser>();
 
 	public static void addUser(String name, String password) {
 		  
@@ -141,7 +142,7 @@ public class ParseFunctions {
 	}
 
 	
-	public void getUsersForGame(String gameName) {
+	public static List getUsersForGame(String gameName) {
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Game");
 		query.whereEqualTo("name", gameName);
 		query.findInBackground(new FindCallback<ParseObject>() {
@@ -152,7 +153,7 @@ public class ParseFunctions {
 		    	//now get users
 		    	if(objects.size() != 0) {
 		    		 JSONArray usersArray = (JSONArray) objects.get(0).get("users");
-		    		 List<ParseUser> users = new ArrayList<ParseUser>();
+		    		 
 		    		 for(int i = 0; i < usersArray.length(); i++){
 		    			try {
 							users.add((ParseUser) usersArray.get(i));
@@ -168,6 +169,7 @@ public class ParseFunctions {
 		  }
 
 		});
+		return users;
 	}
 	
 	public void getImagesForGame(String gameId) {
