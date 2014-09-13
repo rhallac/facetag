@@ -1,4 +1,4 @@
-package PennApps.FaceTag;
+/*package PennApps.FaceTag;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -202,4 +202,4 @@ public class UserDetailsActivity extends Activity {
 		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		startActivity(intent);
 	}
-}
+}*/

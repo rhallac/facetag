@@ -16,6 +16,7 @@ import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
 public class ParseFunctions {
+	private List<ParseUser> games = new ArrayList<ParseUser>();
 
 	public static void addUser(String name, String password) {
 		  
@@ -24,7 +25,7 @@ public class ParseFunctions {
 		 ParseUser user = new ParseUser();
 		 user.setUsername(name);
 		 user.setPassword(password);
-		 user.setEmail("email@example.com");
+		 user.setEmail(System.currentTimeMillis()+"@example.com");
 		 int score = 0;
 		 user.put("name", name);
 		 user.put("score", score);
@@ -39,6 +40,7 @@ public class ParseFunctions {
 		    	 System.out.println("success");
 		       // Hooray! Let them use the app now.
 		     } else {
+		    	 System.out.println("fail" + e);
 		       // Sign up didn't succeed. Look at the ParseException
 		       // to figure out what went wrong
 		     }
@@ -103,8 +105,34 @@ public class ParseFunctions {
 	}
 
 	
-	public void getGamesForUser(String facebookId) {
-		
+	public List<ParseUser> getGamesForUser(String facebookId) {
+		ParseQuery<ParseObject> query = ParseQuery.getQuery("Users");
+		//List<ParseUser> games = new ArrayList<ParseUser>();
+		query.whereEqualTo("id", facebookId);
+		query.findInBackground(new FindCallback<ParseObject>() {
+			@Override
+		  public void done(List<ParseObject> objects, ParseException e) {
+		    if (e == null) {
+		        // The query was successful.
+		    	//now get users
+		    	if(objects.size() != 0) {
+		    		 JSONArray gamesArray = (JSONArray) objects.get(0).get("game");
+		    		 //List<ParseUser> games = new ArrayList<ParseUser>();
+		    		 for(int i = 0; i < gamesArray.length(); i++){
+		    			try {
+							games.add((ParseUser) gamesArray.get(i));
+						} catch (JSONException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+		    		 }
+		    	}
+		    } else {
+		        // Something went wrong.
+		    }
+		  }
+		});
+		return games;
 	}
 
 	

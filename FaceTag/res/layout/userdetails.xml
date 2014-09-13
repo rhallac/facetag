@@ -11,13 +11,13 @@
             android:layout_marginTop="20dp"
             android:gravity="center_horizontal"
             android:orientation="horizontal" >
-            <com.facebook.widget.ProfilePictureView
+<!--             <com.facebook.widget.ProfilePictureView
                 android:id="@+id/userProfilePicture"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center_horizontal"
-                facebook:preset_size="small" />
+                facebook:preset_size="small" /> -->
             <TextView
                 android:id="@+id/userName"
                 android:layout_width="wrap_content"
@@ -148,4 +148,4 @@
         android:background="@drawable/button_login"
         />
 
-</LinearLayout>
+</LinearLayout>  
