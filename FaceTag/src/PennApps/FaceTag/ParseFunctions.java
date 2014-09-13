@@ -76,7 +76,7 @@ public class ParseFunctions {
 		    		 JSONArray usersArray = (JSONArray) objects.get(0).get("users");
 		    		 List<ParseUser> users = new ArrayList<ParseUser>();
 		    		 for(int i = 0; i < usersArray.length(); i++){
-		    			 try {
+		    			try {
 							users.add((ParseUser) usersArray.get(i));
 						} catch (JSONException e1) {
 							// TODO Auto-generated catch block

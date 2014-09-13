@@ -23,7 +23,7 @@ import com.parse.ParseUser;
 
 public class UserDetailsActivity extends Activity {
 
-	//private ProfilePictureView userProfilePictureView;
+	private ProfilePictureView userProfilePictureView;
 	private TextView userNameView;
 	private TextView userLocationView;
 	private TextView userGenderView;
@@ -37,14 +37,14 @@ public class UserDetailsActivity extends Activity {
 
 		setContentView(R.layout.userdetails);
 
-		/*userProfilePictureView = (ProfilePictureView) findViewById(R.id.userProfilePicture);
+		userProfilePictureView = (ProfilePictureView) findViewById(R.id.userProfilePicture);
 		userNameView = (TextView) findViewById(R.id.userName);
 		userLocationView = (TextView) findViewById(R.id.userLocation);
 		userGenderView = (TextView) findViewById(R.id.userGender);
 		userDateOfBirthView = (TextView) findViewById(R.id.userDateOfBirth);
 		userRelationshipView = (TextView) findViewById(R.id.userRelationship);
 
-		logoutButton = (Button) findViewById(R.id.logoutButton);*/
+		logoutButton = (Button) findViewById(R.id.logoutButton);
 		logoutButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {

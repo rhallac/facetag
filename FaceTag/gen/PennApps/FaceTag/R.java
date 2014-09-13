@@ -233,7 +233,7 @@ containing a value of this type.
         public static final int table_round_shape=0x7f02002d;
     }
     public static final class id {
-        public static final int action_settings=0x7f040026;
+        public static final int action_settings=0x7f040027;
         public static final int com_facebook_body_frame=0x7f040015;
         public static final int com_facebook_button_xout=0x7f040017;
         public static final int com_facebook_login_activity_progress_bar=0x7f040005;
@@ -263,15 +263,16 @@ containing a value of this type.
         public static final int imageButton1=0x7f04001e;
         public static final int large=0x7f040002;
         public static final int loginButton=0x7f04001f;
-        public static final int logoutButton=0x7f040025;
+        public static final int logoutButton=0x7f040026;
         public static final int normal=0x7f040001;
         public static final int picker_subtitle=0x7f040012;
         public static final int small=0x7f040000;
-        public static final int userDateOfBirth=0x7f040023;
-        public static final int userGender=0x7f040022;
-        public static final int userLocation=0x7f040021;
-        public static final int userName=0x7f040020;
-        public static final int userRelationship=0x7f040024;
+        public static final int userDateOfBirth=0x7f040024;
+        public static final int userGender=0x7f040023;
+        public static final int userLocation=0x7f040022;
+        public static final int userName=0x7f040021;
+        public static final int userProfilePicture=0x7f040020;
+        public static final int userRelationship=0x7f040025;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
