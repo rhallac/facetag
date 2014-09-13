@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.parse.FindCallback;
 import com.parse.LogInCallback;
@@ -17,6 +18,8 @@ import com.parse.SignUpCallback;
 
 public class ParseFunctions {
 	private List<ParseUser> games = new ArrayList<ParseUser>();
+	public static ParseUser currentUser;
+	public static JSONObject currentGame;
 
 	public static void addUser(String name, String password) {
 		  
@@ -29,6 +32,7 @@ public class ParseFunctions {
 		 int score = 0;
 		 user.put("name", name);
 		 user.put("score", score);
+		 user.put("games", new JSONArray());
 		 System.out.println("inserting user");
 		  
 		 // other fields can be set just like with ParseObject
@@ -38,6 +42,7 @@ public class ParseFunctions {
 		   public void done(ParseException e) {
 		     if (e == null) {
 		    	 System.out.println("success");
+		    	 currentUser = ParseUser.getCurrentUser();
 		       // Hooray! Let them use the app now.
 		     } else {
 		    	 System.out.println("fail" + e);

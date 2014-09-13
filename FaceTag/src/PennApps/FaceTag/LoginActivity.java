@@ -66,6 +66,8 @@ public class LoginActivity extends Activity {
 		String username = (String) ((EditText) findViewById(R.id.editText1)).getText().toString();
 		String pass = (String) ((EditText) findViewById(R.id.editText2)).getText().toString();
 		ParseFunctions.addUser(username, pass);
+		Intent intent = new Intent(this, GameListActivity.class);
+		startActivity(intent);
 	}
 	
 
