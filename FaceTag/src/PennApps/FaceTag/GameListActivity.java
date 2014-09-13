@@ -8,13 +8,14 @@ import com.parse.ParseQuery;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.view.View;
 
 public class GameListActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_game_list);
+		setContentView(R.layout.user_page);
 	}
 		 
 	@Override
@@ -24,4 +25,9 @@ public class GameListActivity extends Activity {
 		return true;
 	}
 
+	public void onClick(View v){
+		//check which button is clicked
+		if (v.getId() == R.id.quit){
+		}
+		}
 }
