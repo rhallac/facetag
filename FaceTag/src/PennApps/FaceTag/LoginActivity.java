@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.parse.LogInCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
@@ -25,6 +26,9 @@ public class LoginActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		 Parse.initialize(this, "L6co5nhzzT7A9UvGcwAFbWV7WlSuw270GukGB0pq", "rXXwBQR639JmTTBm3cHbivV7NzKLRI09fmlYXWmV");     
+	        ParseFacebookUtils.initialize("356060914569407");
+	        String appsecret = "1C85B9DCF3C269DEC37A8E1454753ED8";
 
 		setContentView(R.layout.login_page);
 

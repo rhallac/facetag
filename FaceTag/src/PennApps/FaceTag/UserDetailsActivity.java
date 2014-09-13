@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import facebook.FacebookRequestError;
+import com.facebook.FacebookRequestError;
 import com.facebook.LoginActivity;
 import com.facebook.Request;
 import com.facebook.Response;

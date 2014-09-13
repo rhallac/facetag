@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 
 import com.parse.FindCallback;
 import com.parse.Parse;
@@ -75,7 +76,12 @@ public class ParseFunctions {
 		    		 JSONArray usersArray = (JSONArray) objects.get(0).get("users");
 		    		 List<ParseUser> users = new ArrayList<ParseUser>();
 		    		 for(int i = 0; i < usersArray.length(); i++){
-		    			 users.add((ParseUser) usersArray.get(i));
+		    			 try {
+							users.add((ParseUser) usersArray.get(i));
+						} catch (JSONException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 		    		 }
 		    	}
 		    } else {
