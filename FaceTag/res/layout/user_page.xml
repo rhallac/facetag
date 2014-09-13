@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="76dp"
             android:text="Name"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -23,12 +23,52 @@
             android:id="@+id/userScore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/userName"
             android:layout_alignBottom="@+id/userName"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="54dp"
+            android:layout_marginRight="101dp"
             android:text="5"
             android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ImageView
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/userName"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/group_page" />
+
+        <TextView
+            android:id="@+id/numPlayers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/userScore"
+            android:layout_below="@+id/groupName"
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="72dp"
+            android:text="3"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/groupName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/group"
+            android:layout_marginTop="108dp"
+            android:layout_toLeftOf="@+id/numPlayers"
+            android:text="Group Name"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/whoIt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/numPlayers"
+            android:layout_alignBottom="@+id/numPlayers"
+            android:layout_marginRight="16dp"
+            android:layout_toLeftOf="@+id/groupName"
+            android:text="Potato"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
     </RelativeLayout>
 
