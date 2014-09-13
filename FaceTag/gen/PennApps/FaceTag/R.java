@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package pennApps.FaceTag;
+package PennApps.FaceTag;
 
 public final class R {
     public static final class attr {

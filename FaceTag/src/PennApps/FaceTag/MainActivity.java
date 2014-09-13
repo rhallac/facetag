@@ -1,4 +1,4 @@
-package pennApps.FaceTag;
+package PennApps.FaceTag;
 
 import android.os.Bundle;
 import android.app.Activity;

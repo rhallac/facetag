@@ -358,3 +358,9 @@ java.io.FileNotFoundException: /icons/full/cview16/console_view.png
 
 !ENTRY com.android.ide.eclipse.adt 4 0 2014-09-12 20:59:02.638
 !MESSAGE Failed to load properties file for project 'FaceTag'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-09-12 21:07:41.454
+!MESSAGE Failed to load properties file for project 'FaceTag'
+
+!ENTRY com.android.ide.eclipse.adt 4 0 2014-09-12 21:07:41.462
+!MESSAGE Failed to load properties file for project 'FaceTag'
