@@ -7,6 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,15 +16,18 @@ import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class CameraActivity extends Activity {
     private static final int CAMERA_REQUEST = 1888; 
     private ImageView imageView;
+    Context context;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.camera);
+        context = this;
         this.imageView = (ImageView)this.findViewById(R.id.imageView1);
         Button photoButton = (Button) this.findViewById(R.id.button1);
         photoButton.setOnClickListener(new View.OnClickListener() {
@@ -53,9 +57,10 @@ public class CameraActivity extends Activity {
             		+"base64 : '"+ base64Image + "' }";
             
          //    System.out.println("string is: " + string);
-            //RekoSDK.face_recognize(string, callback);
-            RekoSDK.face_add("Stef", decode, callback);
-            RekoSDK.face_train(callback);
+           // RekoSDK.face_recognize(string, callback);
+            RekoSDK.face_recognize(decode, callback);
+          // RekoSDK.face_add("Becca", decode, callback);
+         //   RekoSDK.face_train(callback);
             		
             		//places: ['Africa', 'America', 'Asia', 'Australia'] }";
             
@@ -66,17 +71,40 @@ public class CameraActivity extends Activity {
         public void gotResponse(String sResponse){
             System.out.print("omg omg omg " + sResponse);
             try {
+            	if(sResponse != null) {
 				JSONObject result = new JSONObject(sResponse);
 				if(result != null) {
-				JSONArray matches = (JSONArray) result.get("matches");
+					/*JSONArray facedetect = (JSONArray) result.get("face_detection");
+					if(facedetect != null) {
+						JSONArray  = (JSONArray) result.get("matches");
+						JSONArray matches = (JSONArray) facedetect.get(3);
 				if(matches != null) {
 					JSONObject match = (JSONObject) matches.get(0);
 					if(match != null) {
 					String tag = match.getString("tag");
 					System.out.println("YES TAG IS" + tag);
+					String tagtext = ("Tag!" + tag + "is it!");
+					Toast.makeText(context, tagtext.toString(), Toast.LENGTH_LONG).show();
+					}
+				}   
 					}
 				}
+				}*/
+					int ind = sResponse.indexOf("name");
+					
+					String tag = sResponse.substring(ind+7, sResponse.length()-ind-1);
+					System.out.println("ta before is" + tag);
+					int end = tag.indexOf(":");
+					System.out.println("index before and after" + ind + " "+ end);
+					tag = tag.substring(0, end);
+					System.out.println("tag substring is" + tag);
+					
+					System.out.println("YES TAG IS" + tag);
+					String tagtext = ("Tag!" + tag + "is it!");
+					//Toast.makeText(context, tagtext.toString(), Toast.LENGTH_LONG).show();
 				}
+            	}
+				
 				
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
