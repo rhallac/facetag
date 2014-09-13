@@ -48,6 +48,9 @@ public class LoginActivity extends Activity {
 			}
 		});
 
+		//sample games
+		ParseFunctions.addGame("coolgamewow", ParseUser.getCurrentUser().getString("name"));
+		
 		//let's test camera activity:
 		/*Intent intent = new Intent(this, CameraActivity.class);
 		startActivity(intent);*/
@@ -77,9 +80,25 @@ public class LoginActivity extends Activity {
 	private void onLoginButtonClicked() {
 		String username = (String) ((EditText) findViewById(R.id.editText1)).getText().toString();
 		String pass = (String) ((EditText) findViewById(R.id.editText2)).getText().toString();
-		addUser(username, pass);
+		loginUser(username, pass);
 		/*Intent intent = new Intent(this, GameListActivity.class);
 		startActivity(intent);*/
+	}
+	
+	public static void loginUser(String username, String password) {
+		ParseUser.logInInBackground(username, password, new LogInCallback() {
+			  public void done(ParseUser user, ParseException e) {
+			    if (user != null) {
+			      // Hooray! The user is logged in.
+			    	Intent intent = new Intent(context, GameListActivity.class);
+			 		 context.startActivity(intent);
+			    	 ParseFunctions.currentUser = ParseUser.getCurrentUser();
+			    	System.out.println("yay log in success");
+			    } else {
+			      // Signup failed. Look at the ParseException to see what happened.
+			    }
+			  }
+			});
 	}
 	
 	public static void addUser(String name, String password) {
