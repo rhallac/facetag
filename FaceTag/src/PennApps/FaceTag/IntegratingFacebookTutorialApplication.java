@@ -1,4 +1,4 @@
-package com.parse.integratingfacebooktutorial;
+package PennApps.FaceTag;
 
 import android.app.Application;
 
@@ -17,7 +17,7 @@ public class IntegratingFacebookTutorialApplication extends Application {
 				"YOUR_PARSE_CLIENT_KEY");
 
 		// Set your Facebook App Id in strings.xml
-		ParseFacebookUtils.initialize(getString(MainActivity.APPID));
+		ParseFacebookUtils.initialize("356060914569407");
 
 	}
 
