@@ -21,13 +21,31 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int button_login=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
+        public static final int login_button_focused=0x7f020002;
+        public static final int login_button_normal=0x7f020003;
+        public static final int login_button_pressed=0x7f020004;
+        public static final int table_round_shape=0x7f020005;
     }
     public static final class id {
-        public static final int action_settings=0x7f080000;
+        public static final int action_settings=0x7f080008;
+        public static final int gridView1=0x7f080000;
+        public static final int imageButton1=0x7f080001;
+        public static final int logoutButton=0x7f080007;
+        public static final int userDateOfBirth=0x7f080005;
+        public static final int userGender=0x7f080004;
+        public static final int userLocation=0x7f080003;
+        public static final int userName=0x7f080002;
+        public static final int userRelationship=0x7f080006;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
+        public static final int homescreen=0x7f030001;
+        public static final int login_page=0x7f030002;
+        public static final int pleasework=0x7f030003;
+        public static final int profile_screen=0x7f030004;
+        public static final int userdetails=0x7f030005;
     }
     public static final class menu {
         public static final int main=0x7f070000;
