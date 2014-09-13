@@ -11,7 +11,7 @@
          style="@style/ProfileBar" >
 
     <ImageButton
-        
+          
         android:id="@+id/button_Profile"
         android:shape="oval"
         android:layout_width="67dp"
