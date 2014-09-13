@@ -70,7 +70,7 @@ public class ParseFunctions {
 			});
 	}
 	
-	public static void addGame(String name, String creatorId) {
+	public static void addGame(final String name, String creatorId) {
 		 String id = name+System.currentTimeMillis();
 		  
 		 ParseObject user = new ParseObject("Game");
@@ -81,6 +81,32 @@ public class ParseFunctions {
 		  
 		 user.put("name", name);
 		 user.put("users", users);
+		 
+		 //get user and add game
+		 ParseQuery<ParseUser> query = ParseQuery.getUserQuery();
+		 query.whereEqualTo("name", creatorId);
+		 query.findInBackground(new FindCallback<ParseUser>() {
+				@Override
+			  public void done(List<ParseUser> objects, ParseException e) {
+			    if (e == null) {
+			        // The query was successful.
+			    	if(objects.size() != 0) {
+			    		ParseUser user = objects.get(0);
+			    		//???!!!
+			    		List games = (ArrayList) user.get("games");
+			    		games.add(name);
+			    		
+			    	}
+			    
+			    } else {
+			        // Something went wrong.
+			    	System.out.println("something went wrong when adding user to game" + e);
+			    	
+			    }
+				};
+			});
+		 
+		 
 		 user.saveInBackground();
 		 
 		 
