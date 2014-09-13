@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.parse.LogInCallback;
 import com.parse.Parse;
@@ -26,12 +27,12 @@ public class LoginActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		 /*Parse.initialize(this, "L6co5nhzzT7A9UvGcwAFbWV7WlSuw270GukGB0pq", "rXXwBQR639JmTTBm3cHbivV7NzKLRI09fmlYXWmV");     
-	        ParseFacebookUtils.initialize("356060914569407");*/
+		 Parse.initialize(this, "L6co5nhzzT7A9UvGcwAFbWV7WlSuw270GukGB0pq", "rXXwBQR639JmTTBm3cHbivV7NzKLRI09fmlYXWmV");     
+	        ParseFacebookUtils.initialize("356060914569407");
 	        String appsecret = "1C85B9DCF3C269DEC37A8E1454753ED8";
 		
-	        setContentView(R.layout.login_screen);
-		loginButton = (Button) findViewById(R.id.loginButton);
+	        setContentView(R.layout.activity_main);
+		loginButton = (Button) findViewById(R.id.button1);
 		loginButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -42,10 +43,10 @@ public class LoginActivity extends Activity {
 		// Check if there is a currently logged in user
 		// and they are linked to a Facebook account.
 		ParseUser currentUser = ParseUser.getCurrentUser();
-		if ((currentUser != null) && ParseFacebookUtils.isLinked(currentUser)) {
+		/*if ((currentUser != null) && ParseFacebookUtils.isLinked(currentUser)) {
 			// Go to the user info activity
 			showUserDetailsActivity();
-		}
+		}*/
 	}
 
 	@Override
@@ -62,32 +63,12 @@ public class LoginActivity extends Activity {
 	}
 
 	private void onLoginButtonClicked() {
-		LoginActivity.this.progressDialog = ProgressDialog.show(
-				LoginActivity.this, "", "Logging in...", true);
-		List<String> permissions = Arrays.asList("public_profile", "user_about_me",
-				"user_relationships", "user_birthday", "user_location");
-		ParseFacebookUtils.logIn(permissions, this, new LogInCallback() {
-			@Override
-			public void done(ParseUser user, ParseException err) {
-				LoginActivity.this.progressDialog.dismiss();
-				if (user == null) {
-					Log.d(IntegratingFacebookTutorialApplication.TAG,
-							"Uh oh. The user cancelled the Facebook login.");
-				} else if (user.isNew()) {
-					Log.d(IntegratingFacebookTutorialApplication.TAG,
-							"User signed up and logged in through Facebook!");
-					showUserDetailsActivity();
-				} else {
-					Log.d(IntegratingFacebookTutorialApplication.TAG,
-							"User logged in through Facebook!");
-					showUserDetailsActivity();
-				}
-			}
-		});
+		String username = (String) ((EditText) findViewById(R.id.editText1)).getText().toString();
+		ParseFunctions.addUser(username);
 	}
 
-	private void showUserDetailsActivity() {
+	/*private void showUserDetailsActivity() {
 		Intent intent = new Intent(this, UserDetailsActivity.class);
 		startActivity(intent);
-	}
+	}*/
 }

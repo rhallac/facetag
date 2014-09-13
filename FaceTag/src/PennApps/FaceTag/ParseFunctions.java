@@ -15,9 +15,9 @@ import com.parse.ParseUser;
 
 public class ParseFunctions {
 
-	public static void addUser(String name, String email, String facebookId) {
+	public static void addUser(String name) {
 		  
-		 ParseObject user = new ParseObject("User");
+		 ParseUser user = new ParseUser();
 		 int score = 0;
 		 user.put("name", name);
 		 user.put("score", score);
