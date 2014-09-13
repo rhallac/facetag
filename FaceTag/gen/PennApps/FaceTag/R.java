@@ -43,12 +43,12 @@ public final class R {
         public static final int editText2=0x7f080001;
         public static final int gridView1=0x7f080008;
         public static final int group=0x7f08000e;
-        public static final int groupName=0x7f08000f;
+        public static final int groupName=0x7f080010;
         public static final int imageButton1=0x7f080009;
         public static final int imageView1=0x7f080004;
         public static final int loginButton=0x7f08000a;
         public static final int logoutButton=0x7f080016;
-        public static final int numPlayers=0x7f080010;
+        public static final int numPlayers=0x7f08000f;
         public static final int textView1=0x7f080005;
         public static final int userDateOfBirth=0x7f080014;
         public static final int userGender=0x7f080013;

@@ -540,8 +540,8 @@ public class RekoSDK {
         // api_secret 
         nameValuePairs.add(new BasicNameValuePair("api_secret", sAPI_SECRET)); 
         /*the following has been added, hope it doesn't break things*/
-        nameValuePairs.add(new BasicNameValuePair("namespace", "demo_project")); 
-        nameValuePairs.add(new BasicNameValuePair("user_id", "demo_user")); 
+       // nameValuePairs.add(new BasicNameValuePair("namespace", "demo_project")); 
+       // nameValuePairs.add(new BasicNameValuePair("user_id", "demo_user")); 
         return nameValuePairs;
 	}
 	
