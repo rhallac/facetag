@@ -201,7 +201,7 @@ containing a value of this type.
         public static final int com_facebook_list_section_header_background=0x7f02000e;
         public static final int com_facebook_loginbutton_silver=0x7f02000f;
         public static final int com_facebook_logo=0x7f020010;
-        public static final int com_facebook_picker_default_separator_color=0x7f02002f;
+        public static final int com_facebook_picker_default_separator_color=0x7f020031;
         public static final int com_facebook_picker_item_background=0x7f020011;
         public static final int com_facebook_picker_list_focused=0x7f020012;
         public static final int com_facebook_picker_list_longpressed=0x7f020013;
@@ -232,11 +232,13 @@ containing a value of this type.
         public static final int login_button_normal=0x7f02002c;
         public static final int login_button_pressed=0x7f02002d;
         public static final int table_round_shape=0x7f02002e;
+        public static final int userblock=0x7f02002f;
+        public static final int userpage=0x7f020030;
     }
     public static final class id {
         public static final int User_Playing=0x7f040021;
         public static final int Who_is_it=0x7f040022;
-        public static final int action_settings=0x7f04002e;
+        public static final int action_settings=0x7f040030;
         public static final int button1=0x7f040005;
         public static final int button_Profile=0x7f040026;
         public static final int com_facebook_body_frame=0x7f040018;
@@ -268,19 +270,21 @@ containing a value of this type.
         public static final int editText2=0x7f040004;
         public static final int gridView1=0x7f040023;
         public static final int imageButton1=0x7f040024;
+        public static final int imageView1=0x7f040027;
         public static final int large=0x7f040002;
         public static final int loginButton=0x7f040025;
-        public static final int logoutButton=0x7f04002d;
+        public static final int logoutButton=0x7f04002f;
         public static final int normal=0x7f040001;
         public static final int picker_subtitle=0x7f040015;
         public static final int small=0x7f040000;
         public static final int textView1=0x7f040020;
-        public static final int userDateOfBirth=0x7f04002b;
-        public static final int userGender=0x7f04002a;
-        public static final int userLocation=0x7f040029;
-        public static final int userName=0x7f040028;
-        public static final int userProfilePicture=0x7f040027;
-        public static final int userRelationship=0x7f04002c;
+        public static final int userDateOfBirth=0x7f04002d;
+        public static final int userGender=0x7f04002c;
+        public static final int userLocation=0x7f04002b;
+        public static final int userName=0x7f040029;
+        public static final int userProfilePicture=0x7f04002a;
+        public static final int userRelationship=0x7f04002e;
+        public static final int userScore=0x7f040028;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -307,9 +311,11 @@ containing a value of this type.
         public static final int pleasework=0x7f030015;
         public static final int profile=0x7f030016;
         public static final int profile_screen=0x7f030017;
-        public static final int user_item=0x7f030018;
-        public static final int userdetails=0x7f030019;
-        public static final int users_in_game=0x7f03001a;
+        public static final int user_block=0x7f030018;
+        public static final int user_item=0x7f030019;
+        public static final int user_page=0x7f03001a;
+        public static final int userdetails=0x7f03001b;
+        public static final int users_in_game=0x7f03001c;
     }
     public static final class menu {
         public static final int main=0x7f090000;

@@ -28,7 +28,7 @@ public class LoginActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		 Parse.initialize(this, "L6co5nhzzT7A9UvGcwAFbWV7WlSuw270GukGB0pq", "rXXwBQR639JmTTBm3cHbivV7NzKLRI09fmlYXWmV");     
-	        ParseFacebookUtils.initialize("356060914569407");
+	      //  ParseFacebookUtils.initialize("356060914569407");
 	        String appsecret = "1C85B9DCF3C269DEC37A8E1454753ED8";
 		
 	        setContentView(R.layout.activity_main);
@@ -64,8 +64,10 @@ public class LoginActivity extends Activity {
 
 	private void onLoginButtonClicked() {
 		String username = (String) ((EditText) findViewById(R.id.editText1)).getText().toString();
-		ParseFunctions.addUser(username);
+		String pass = (String) ((EditText) findViewById(R.id.editText2)).getText().toString();
+		ParseFunctions.addUser(username, pass);
 	}
+	
 
 	/*private void showUserDetailsActivity() {
 		Intent intent = new Intent(this, UserDetailsActivity.class);
