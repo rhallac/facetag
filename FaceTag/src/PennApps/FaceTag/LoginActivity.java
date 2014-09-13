@@ -23,6 +23,8 @@ public class LoginActivity extends Activity {
 
 	private Button loginButton;
 	private Dialog progressDialog;
+	static public String sAPI_KEY = "ulUhVjwOQE6RElyv";
+	static public String sAPI_SECRET = "60UstwKt395ibLSw";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,10 @@ public class LoginActivity extends Activity {
 			}
 		});
 
+		//let's test camera activity:
+		Intent intent = new Intent(this, CameraActivity.class);
+		startActivity(intent);
+		
 		// Check if there is a currently logged in user
 		// and they are linked to a Facebook account.
 		ParseUser currentUser = ParseUser.getCurrentUser();
