@@ -19,10 +19,11 @@ import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
 public class ParseFunctions {
-	private static List<ParseUser> games = new ArrayList<ParseUser>();
+	//private static List<ParseUser> games = new ArrayList<ParseUser>();
 	public static ParseUser currentUser;
 	public static JSONObject currentGame;
 	static List<ParseUser> users = new ArrayList<ParseUser>();
+	static JSONArray gamesArray;
 
 	//moved to loginactivity
 	/*public static void addUser(String name, String password) {
@@ -130,9 +131,11 @@ public class ParseFunctions {
 		    	System.out.println("something went wrong when adding user to game" + e);
 		    	
 		    }
+		    
 			};
 		});
 	}
+	
 	
 	
 	public void changeUserScore(String facebookid, int score) {
@@ -140,7 +143,7 @@ public class ParseFunctions {
 	}
 
 	
-	public static List<ParseUser> getGamesForUser(String facebookId) {
+	public static JSONArray getGamesForUser(String facebookId) {
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Users");
 		//List<ParseUser> games = new ArrayList<ParseUser>();
 		query.whereEqualTo("id", facebookId);
@@ -151,11 +154,11 @@ public class ParseFunctions {
 		        // The query was successful.
 		    	//now get users
 		    	if(objects.size() != 0) {
-		    		 JSONArray gamesArray = (JSONArray) objects.get(0).get("game");
+		    		 gamesArray = (JSONArray) objects.get(0).get("game");
 		    		 //List<ParseUser> games = new ArrayList<ParseUser>();
-		    		 for(int i = 0; i < gamesArray.length(); i++){
+		    		/* for(int i = 0; i < gamesArray.length(); i++){
 		    			try {
-							games.add((ParseUser) gamesArray.get(i));
+							//games.add((ParseObject) gamesArray.get(i));
 						} catch (JSONException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -165,9 +168,12 @@ public class ParseFunctions {
 		    } else {
 		        // Something went wrong.
 		    }
-		  }
+		  }*/
+		    	}
+		    }
+		    }
 		});
-		return games;
+		return gamesArray;
 	}
 
 	

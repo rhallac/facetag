@@ -3,6 +3,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -110,6 +112,19 @@ public class LoginActivity extends Activity {
 		 user.setPassword(password);
 		 user.setEmail(System.currentTimeMillis()+"@example.com");
 		 int score = 0;
+		 JSONObject info = null;
+		try {
+			info = new JSONObject("info");
+		} catch (JSONException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		 try {
+			info.put("score", score);
+		} catch (JSONException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		 user.put("name", name);
 		 user.put("score", score);
 		 user.put("games", new JSONArray());

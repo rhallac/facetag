@@ -2,7 +2,9 @@ package PennApps.FaceTag;
 
 import java.util.List;
 
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.parse.GetCallback;
 import com.parse.Parse;
@@ -38,15 +40,23 @@ public class GameListActivity extends Activity {
 		
 		
 		ListView layout = (ListView) findViewById(R.id.user_listview);
-		List<ParseUser> games = ParseFunctions.getGamesForUser(currentUserName);
+		JSONArray games = ParseFunctions.getGamesForUser(currentUserName);
+		System.out.println("game size is" + games.length());
 		
-		for(int i = 0; i < games.size(); i++) {
+		for(int i = 0; i < games.length(); i++) {
+			
 			LinearLayout gameBlock = new LinearLayout(this); 
 			LayoutInflater vi = (LayoutInflater) this
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			gameBlock = (LinearLayout) vi.inflate(R.layout.group_block, null);
 			//int score = games.get(i).getInt("");
-			String name = games.get(i).getString("name");
+			String name = "not working this is default oops";
+			try {
+				name = ((JSONObject) games.get(i)).getString("name");
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			//((TextView) userBlock.findViewById(R.id.userScore)).setText(score);
 			((TextView) gameBlock.findViewById(R.id.groupName)).setText(name);
 		}
