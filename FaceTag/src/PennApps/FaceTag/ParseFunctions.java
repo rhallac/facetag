@@ -42,25 +42,42 @@ public class ParseFunctions {
 		 
 	}
 	
-	public void addUserToGame(String userName, String GameId) {
-		
+	public void addUserToGame(final String userName, String gameName) {
+		ParseQuery<ParseObject> query = ParseQuery.getQuery("Game");
+		query.whereEqualTo("name", gameName);
+		query.findInBackground(new FindCallback<ParseObject>() {
+			@Override
+		  public void done(List<ParseObject> objects, ParseException e) {
+		    if (e == null) {
+		        // The query was successful.
+		    	if(objects.size() != 0) {
+		    		JSONArray users = (JSONArray) objects.get(0).get("users");
+		    		users.put(userName);
+		    	}
+		    
+		    } else {
+		        // Something went wrong.
+		    	System.out.println("something went wrong when adding user to game" + e);
+		    	
+		    }
+			};
+		});
 	}
+	
 	
 	public void changeUserScore(String facebookid, int score) {
 		
 	}
-	
-	public void addImageToGame() {
-		
-	}
+
 	
 	public void getGamesForUser(String facebookId) {
 		
 	}
+
 	
-	public void getUsersForGame(String gameId) {
+	public void getUsersForGame(String gameName) {
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Game");
-		query.whereEqualTo("id", gameId);
+		query.whereEqualTo("name", gameName);
 		query.findInBackground(new FindCallback<ParseObject>() {
 			@Override
 		  public void done(List<ParseObject> objects, ParseException e) {
