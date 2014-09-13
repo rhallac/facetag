@@ -29,9 +29,8 @@ public class LoginActivity extends Activity {
 		 /*Parse.initialize(this, "L6co5nhzzT7A9UvGcwAFbWV7WlSuw270GukGB0pq", "rXXwBQR639JmTTBm3cHbivV7NzKLRI09fmlYXWmV");     
 	        ParseFacebookUtils.initialize("356060914569407");*/
 	        String appsecret = "1C85B9DCF3C269DEC37A8E1454753ED8";
-
-		setContentView(R.layout.login_page);
-
+		
+	        setContentView(R.layout.login_screen);
 		loginButton = (Button) findViewById(R.id.loginButton);
 		loginButton.setOnClickListener(new View.OnClickListener() {
 			@Override
