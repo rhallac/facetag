@@ -15,18 +15,16 @@ import com.parse.ParseUser;
 
 public class ParseFunctions {
 
-	/*public static void addUser(String name, String email, String facebookId) {
+	public static void addUser(String name, String email, String facebookId) {
 		  
 		 ParseObject user = new ParseObject("User");
 		 int score = 0;
 		 user.put("name", name);
-		 user.put("email", email);
 		 user.put("score", score);
-		 user.put("id",  facebookId);
 		 user.saveInBackground();
 		 
 		 
-	}*/
+	}
 	
 	public static void addGame(String name, String creatorId) {
 		 String id = name+System.currentTimeMillis();
@@ -38,16 +36,13 @@ public class ParseFunctions {
 		 JSONArray images = new JSONArray();
 		  
 		 user.put("name", name);
-		 user.put("email", creatorId);
-		 user.put("id",  id);
 		 user.put("users", users);
-		 user.put("images", images);
 		 user.saveInBackground();
 		 
 		 
 	}
 	
-	public void addUserToGame(String facebookId, String GameId) {
+	public void addUserToGame(String userName, String GameId) {
 		
 	}
 	

@@ -26,8 +26,8 @@ public class LoginActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		 Parse.initialize(this, "L6co5nhzzT7A9UvGcwAFbWV7WlSuw270GukGB0pq", "rXXwBQR639JmTTBm3cHbivV7NzKLRI09fmlYXWmV");     
-	        ParseFacebookUtils.initialize("356060914569407");
+		 /*Parse.initialize(this, "L6co5nhzzT7A9UvGcwAFbWV7WlSuw270GukGB0pq", "rXXwBQR639JmTTBm3cHbivV7NzKLRI09fmlYXWmV");     
+	        ParseFacebookUtils.initialize("356060914569407");*/
 	        String appsecret = "1C85B9DCF3C269DEC37A8E1454753ED8";
 
 		setContentView(R.layout.login_page);
@@ -65,7 +65,7 @@ public class LoginActivity extends Activity {
 	private void onLoginButtonClicked() {
 		LoginActivity.this.progressDialog = ProgressDialog.show(
 				LoginActivity.this, "", "Logging in...", true);
-		List<String> permissions = Arrays.asList("basic_info", "user_about_me",
+		List<String> permissions = Arrays.asList("public_profile", "user_about_me",
 				"user_relationships", "user_birthday", "user_location");
 		ParseFacebookUtils.logIn(permissions, this, new LogInCallback() {
 			@Override
