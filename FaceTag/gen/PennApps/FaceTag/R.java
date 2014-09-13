@@ -23,13 +23,14 @@ public final class R {
     public static final class drawable {
         public static final int button_login=0x7f020000;
         public static final int frontpage=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int login_button_focused=0x7f020003;
-        public static final int login_button_normal=0x7f020004;
-        public static final int login_button_pressed=0x7f020005;
-        public static final int table_round_shape=0x7f020006;
-        public static final int userblock=0x7f020007;
-        public static final int userpage=0x7f020008;
+        public static final int group_page=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
+        public static final int login_button_focused=0x7f020004;
+        public static final int login_button_normal=0x7f020005;
+        public static final int login_button_pressed=0x7f020006;
+        public static final int table_round_shape=0x7f020007;
+        public static final int userblock=0x7f020008;
+        public static final int userpage=0x7f020009;
     }
     public static final class id {
         public static final int User_Playing=0x7f080004;
@@ -56,19 +57,21 @@ public final class R {
         public static final int activity_game_list=0x7f030000;
         public static final int activity_main=0x7f030001;
         public static final int activity_user_list=0x7f030002;
-        public static final int game_view=0x7f030003;
-        public static final int homescreen=0x7f030004;
-        public static final int login=0x7f030005;
-        public static final int login_page=0x7f030006;
-        public static final int login_screen=0x7f030007;
-        public static final int pleasework=0x7f030008;
-        public static final int profile=0x7f030009;
-        public static final int profile_screen=0x7f03000a;
-        public static final int user_block=0x7f03000b;
-        public static final int user_item=0x7f03000c;
-        public static final int user_page=0x7f03000d;
-        public static final int userdetails=0x7f03000e;
-        public static final int users_in_game=0x7f03000f;
+        public static final int camera=0x7f030003;
+        public static final int game_view=0x7f030004;
+        public static final int group_block=0x7f030005;
+        public static final int homescreen=0x7f030006;
+        public static final int login=0x7f030007;
+        public static final int login_page=0x7f030008;
+        public static final int login_screen=0x7f030009;
+        public static final int pleasework=0x7f03000a;
+        public static final int profile=0x7f03000b;
+        public static final int profile_screen=0x7f03000c;
+        public static final int user_block=0x7f03000d;
+        public static final int user_item=0x7f03000e;
+        public static final int user_page=0x7f03000f;
+        public static final int userdetails=0x7f030010;
+        public static final int users_in_game=0x7f030011;
     }
     public static final class menu {
         public static final int game_list=0x7f070000;
