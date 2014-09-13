@@ -14,6 +14,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 public class ParseFunctions {
+	private List<ParseUser> games = new ArrayList<ParseUser>();
 
 	public static void addUser(String name, String email, String facebookId) {
 		  
@@ -54,8 +55,34 @@ public class ParseFunctions {
 		
 	}
 	
-	public void getGamesForUser(String facebookId) {
-		
+	public List<ParseUser> getGamesForUser(String facebookId) {
+		ParseQuery<ParseObject> query = ParseQuery.getQuery("Users");
+		//List<ParseUser> games = new ArrayList<ParseUser>();
+		query.whereEqualTo("id", facebookId);
+		query.findInBackground(new FindCallback<ParseObject>() {
+			@Override
+		  public void done(List<ParseObject> objects, ParseException e) {
+		    if (e == null) {
+		        // The query was successful.
+		    	//now get users
+		    	if(objects.size() != 0) {
+		    		 JSONArray gamesArray = (JSONArray) objects.get(0).get("game");
+		    		 //List<ParseUser> games = new ArrayList<ParseUser>();
+		    		 for(int i = 0; i < gamesArray.length(); i++){
+		    			try {
+							games.add((ParseUser) gamesArray.get(i));
+						} catch (JSONException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+		    		 }
+		    	}
+		    } else {
+		        // Something went wrong.
+		    }
+		  }
+		});
+		return games;
 	}
 	
 	public void getUsersForGame(String gameId) {

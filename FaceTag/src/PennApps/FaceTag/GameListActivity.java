@@ -16,23 +16,6 @@ public class GameListActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_game_list);
 	}
-
-	
-	public void getGames(){
-		ParseQuery<ParseObject> query = ParseQuery.getQuery("GameScore");
-		query.getInBackground("xWMyZ4YEGZ", new GetCallback<ParseObject>() {
-			public void done(ParseObject object, ParseException e) {
-			    if (e == null) {
-			    	int score = object.getInt("score");
-			    	String playerName = object.getString("playerName");
-			    	boolean cheatMode = object.getBoolean("cheatMode");
-			      // object will be your game score
-			    } else {
-			      // something went wrong
-			    }
-			  }
-			});
-	}
 		
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
