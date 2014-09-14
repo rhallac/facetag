@@ -6,6 +6,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.parse.ParseUser;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -45,6 +47,12 @@ public class CameraActivity extends Activity {
         if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {  
             Bitmap photo = (Bitmap) data.getExtras().get("data"); 
             imageView.setImageBitmap(photo);
+            
+      	  ParseUser user = ParseUser.getCurrentUser();
+		  //update the score
+		  //int score = (Integer) user.get("score");
+		  user.increment("score");
+		  user.saveInBackground();
             
             Toast.makeText(this, "Please wait a moment...", Toast.LENGTH_LONG);
             
@@ -109,10 +117,12 @@ public class CameraActivity extends Activity {
 					final String tagtext = ("Tag!" + tag + "is it!");
 					taggedName = tagtext;
 					Looper.prepare();
+					LoginActivity.whoIsIt = tagtext;
 					
 					((Activity) context).runOnUiThread(new Runnable() {
 						  public void run() {
 							  Toast.makeText(context, tagtext.toString(), Toast.LENGTH_LONG).show();
+					
 							  Intent i = new Intent(context, UserListActivity.class);
 					          startActivity(i);
 						  }

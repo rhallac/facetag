@@ -52,8 +52,8 @@ public final class R {
         public static final int gridView1=0x7f080011;
         public static final int group=0x7f080016;
         public static final int groupName=0x7f080018;
-        public static final int imageButton1=0x7f080007;
-        public static final int imageButton2=0x7f080006;
+        public static final int imageButton1=0x7f080006;
+        public static final int imageButton2=0x7f080007;
         public static final int imageView1=0x7f080008;
         public static final int loginButton=0x7f080012;
         public static final int logoutButton=0x7f08001e;

@@ -70,7 +70,8 @@ public class UserListActivity extends Activity {
 		LayoutInflater vi3 = (LayoutInflater) this
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		userBlock3 = (LinearLayout) vi3.inflate(R.layout.user_block, null);
-		((TextView) userBlock3.findViewById(R.id.userScore)).setText("8");
+		String score = ((Integer) ParseUser.getCurrentUser().getInt("score")).toString();
+		((TextView) userBlock3.findViewById(R.id.userScore)).setText(score);
 		((TextView) userBlock3.findViewById(R.id.userName)).setText("Stef");
 		layout.addView(userBlock3);
 		
