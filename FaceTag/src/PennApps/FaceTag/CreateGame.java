@@ -24,7 +24,7 @@ public class CreateGame extends Activity {
 	public void onClick(View v){
 		//check which button is clicked
 		if (v.getId() == R.id.creategame){
-			ParseFunctions.addGame(R.id.GameName + "", ParseFunctions.currentUser.toString());
+			ParseFunctions.addGame(R.id.GameName + "", ParseFunctions.currentUser);
 			ParseFunctions.addUserToGame(R.id.username1 + "", R.id.GameName + "");
 			Intent start = new Intent(getApplicationContext(), GameListActivity.class);
 			startActivity(start);

@@ -1,5 +1,6 @@
 package PennApps.FaceTag;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -32,7 +33,7 @@ public class GameListActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.user_page);
 		if(ParseUser.getCurrentUser() != null) {
-		currentUserName = ParseUser.getCurrentUser().getString("username");
+		currentUserName = ParseUser.getCurrentUser().getUsername();
 		String score = ParseFunctions.currentUser.getString("score");
 		System.out.print("score is" + score);
 		
@@ -41,10 +42,10 @@ public class GameListActivity extends Activity {
 		
 		
 		ListView layout = (ListView) findViewById(R.id.user_listview);
-		JSONArray games = ParseFunctions.getGamesForUser(currentUserName);
-		System.out.println("game size is" + games.length());
+		ArrayList games = ParseFunctions.getGamesForUser(currentUserName);
+		System.out.println("game size is" + games.size());
 		
-		for(int i = 0; i < games.length(); i++) {
+		for(int i = 0; i < games.size(); i++) {
 			
 			LinearLayout gameBlock = new LinearLayout(this); 
 			LayoutInflater vi = (LayoutInflater) this
@@ -72,7 +73,8 @@ public class GameListActivity extends Activity {
 		return true;
 	}
 
-	public void onClick(View v){
+	public boolean onClick(View v){
+		System.out.println("on click ");
 		//check which button is clicked
 		if (v.getId() == R.id.group){
 			Intent start = new Intent(getApplicationContext(), UserListActivity.class);
@@ -82,5 +84,6 @@ public class GameListActivity extends Activity {
 			Intent start = new Intent(getApplicationContext(), CreateGame.class);
 			startActivity(start);
 		}
+		return true;
 	}
 }
