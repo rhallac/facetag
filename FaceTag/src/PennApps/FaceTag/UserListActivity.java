@@ -56,7 +56,7 @@ public class UserListActivity extends Activity {
 		userBlock = (LinearLayout) vi.inflate(R.layout.user_block, null);
 		((TextView) userBlock.findViewById(R.id.userScore)).setText("12");
 		((TextView) userBlock.findViewById(R.id.userName)).setText("Becca");
-		layout.addView(userBlock);
+		layout.addView(userBlock); 
 		
 		LinearLayout userBlock2 = new LinearLayout(this); 
 		LayoutInflater vi2 = (LayoutInflater) this
@@ -71,7 +71,7 @@ public class UserListActivity extends Activity {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		userBlock3 = (LinearLayout) vi3.inflate(R.layout.user_block, null);
 		((TextView) userBlock3.findViewById(R.id.userScore)).setText("8");
-		((TextView) userBlock3.findViewById(R.id.userName)).setText("Rachel");
+		((TextView) userBlock3.findViewById(R.id.userName)).setText("Stef");
 		layout.addView(userBlock3);
 		
 		((Button)findViewById(R.id.camera_click)).setOnClickListener(new View.OnClickListener(){
