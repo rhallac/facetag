@@ -16,6 +16,7 @@ import com.parse.ParseUser;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -73,8 +74,13 @@ public class GameListActivity extends Activity {
 
 	public void onClick(View v){
 		//check which button is clicked
-	/*	if (v.getId() == R.id.quit){
+		if (v.getId() == R.id.group){
+			Intent start = new Intent(getApplicationContext(), UserListActivity.class);
+			startActivity(start);
 		}
-		}*/
-}
+		if (v.getId() == R.id.newgame){
+			Intent start = new Intent(getApplicationContext(), CreateGame.class);
+			startActivity(start);
+		}
+	}
 }
