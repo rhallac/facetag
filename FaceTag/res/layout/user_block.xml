@@ -7,14 +7,16 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="80dp" >
 
-<ImageView
-    android:id="@+id/imageView1"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentLeft="true"
-    android:src="@drawable/userblock" />
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:paddingBottom="0dp"
+            android:paddingTop="0dp"
+            android:src="@drawable/userblock" />
 
         <TextView
             android:id="@+id/userScore"
@@ -33,10 +35,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="125dp"
+            android:layout_marginTop="30dp"
             android:text="Name"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
     </RelativeLayout>
 
 </LinearLayout>
