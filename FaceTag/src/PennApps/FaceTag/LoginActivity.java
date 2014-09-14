@@ -45,6 +45,11 @@ public class LoginActivity extends Activity {
 	      //  ParseFacebookUtils.initialize("356060914569407");
 	        String appsecret = "1C85B9DCF3C269DEC37A8E1454753ED8";
 	        context = this;
+	        
+	        if(ParseUser.getCurrentUser() != null) {
+	        	Intent i = new Intent(this, GameListActivity.class);
+	        	startActivity(i);
+	        }
 		
 	        setContentView(R.layout.activity_main);
 		loginButton = (Button) findViewById(R.id.button1);

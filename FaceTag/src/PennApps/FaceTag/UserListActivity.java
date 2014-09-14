@@ -104,6 +104,17 @@ public class UserListActivity extends Activity {
 				
 			}
 		});
+		
+		(findViewById(R.id.imageButton2)).setOnClickListener(new View.OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				System.out.println("CLICLED CAMERA");
+				Intent start = new Intent(getApplicationContext(), LoginActivity.class);
+				startActivity(start);
+				
+			}
+		});
 	
 	}
 	

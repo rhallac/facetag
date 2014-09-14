@@ -114,10 +114,10 @@ public class CameraActivity extends Activity {
 					System.out.println("tag substring is" + tag);
 					
 					System.out.println("YES TAG IS" + tag);
-					final String tagtext = ("Tag!" + tag + "is it!");
+					final String tagtext = ("Tag! " + tag + " is it!");
 					taggedName = tagtext;
 					Looper.prepare();
-					LoginActivity.whoIsIt = tagtext;
+					LoginActivity.whoIsIt = tag;
 				
 					((Activity) context).runOnUiThread(new Runnable() {
 						  public void run() {
