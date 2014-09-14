@@ -72,17 +72,6 @@
             android:text="Stef"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/newgame"
-            android:onClick="onClick"
-            android:layout_marginLeft="63dp"
-            android:layout_marginTop="111dp"
-            android:text="Create Game" />
-
     </RelativeLayout>
 
 </LinearLayout>
