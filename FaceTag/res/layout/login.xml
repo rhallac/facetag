@@ -7,11 +7,7 @@
     android:orientation="vertical"
     tools:context=".LoginActivity" >
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </RelativeLayout>
-
+   
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
@@ -31,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="352dp"
+            android:layout_marginTop="452dp"
             android:ems="10" />
 
         <EditText
@@ -40,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/editText1"
             android:layout_below="@+id/editText1"
-            android:layout_marginTop="56dp"
+            android:layout_marginTop="156dp"
             android:ems="10"
             android:inputType="textPassword" >
 
