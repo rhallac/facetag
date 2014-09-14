@@ -91,7 +91,7 @@ public class LoginActivity extends Activity {
 			      // Hooray! The user is logged in.
 			    	 ParseFunctions.currentUser = ParseUser.getCurrentUser();
 			 		//sample games
-			 		ParseFunctions.addGame("coolgamewow", ParseUser.getCurrentUser().getString("username"));
+			 		ParseFunctions.addGame("Awesome Game", ParseUser.getCurrentUser());
 			 		Intent intent = new Intent(context, GameListActivity.class);
 			 		 context.startActivity(intent);
 			 		
@@ -112,20 +112,7 @@ public class LoginActivity extends Activity {
 		 user.setPassword(password);
 		 user.setEmail(System.currentTimeMillis()+"@example.com");
 		 int score = 0;
-		 JSONObject info = null;
-		try {
-			info = new JSONObject("info");
-		} catch (JSONException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}
-		 try {
-			info.put("score", score);
-		} catch (JSONException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		 user.put("name", name);
+//		 user.put("name", name);
 		 user.put("score", score);
 		 user.put("games", new JSONArray());
 		 System.out.println("inserting user");

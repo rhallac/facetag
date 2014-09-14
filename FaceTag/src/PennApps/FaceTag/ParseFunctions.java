@@ -22,8 +22,8 @@ public class ParseFunctions {
 	//private static List<ParseUser> games = new ArrayList<ParseUser>();
 	public static ParseUser currentUser;
 	public static JSONObject currentGame;
-	static List<ParseUser> users = new ArrayList<ParseUser>();
-	static JSONArray gamesArray;
+	static List<String> users = new ArrayList<String>();
+	static ArrayList gamesArray;
 
 	//moved to loginactivity
 	/*public static void addUser(String name, String password) {
@@ -71,44 +71,23 @@ public class ParseFunctions {
 			});
 	}
 	
-	public static void addGame(final String name, String creatorId) {
-		 String id = name+System.currentTimeMillis();
+	public static void addGame(String name, ParseUser user) {
 		  
-		 ParseObject user = new ParseObject("Game");
+		 ParseObject game = new ParseObject("Game");
 		 JSONArray users = new JSONArray();
-		 users.put(creatorId);
-		 
-		 JSONArray images = new JSONArray();
+		 users.put(user.getUsername());
 		  
-		 user.put("name", name);
-		 user.put("users", users);
+		 game.put("name", name);
+		 game.put("users", users);
 		 
-		 //get user and add game
-		 ParseQuery<ParseUser> query = ParseQuery.getUserQuery();
-		 query.whereEqualTo("name", creatorId);
-		 query.findInBackground(new FindCallback<ParseUser>() {
-				@Override
-			  public void done(List<ParseUser> objects, ParseException e) {
-			    if (e == null) {
-			        // The query was successful.
-			    	if(objects.size() != 0) {
-			    		ParseUser user = objects.get(0);
+	
+			    		System.out.println("adding game user is" + user.getUsername());
 			    		//???!!!
-			    		List games = (ArrayList) user.get("games");
+			    		ArrayList games = (ArrayList) user.get("games");
 			    		games.add(name);
-			    		
-			    	}
-			    
-			    } else {
-			        // Something went wrong.
-			    	System.out.println("something went wrong when adding user to game" + e);
-			    	
-			    }
-				};
-			});
-		 
-		 
-		 user.saveInBackground();
+			    		user.put("games", games);
+			    		game.saveInBackground();
+			    		user.saveInBackground();
 		 
 		 
 	}
@@ -143,7 +122,7 @@ public class ParseFunctions {
 	}
 
 	
-	public static JSONArray getGamesForUser(String username) {
+	public static ArrayList getGamesForUser(String username) {
 		
 		//get user from username
 		ParseQuery<ParseUser> query = ParseUser.getQuery();
@@ -157,7 +136,7 @@ public class ParseFunctions {
 		    	//now get users
 		    	if(objects.size() != 0) {
 		    		//get games
-		    		 gamesArray = (JSONArray) objects.get(0).get("games");
+		    		 gamesArray = (ArrayList) objects.get(0).get("games");
 		    		 //List<ParseUser> games = new ArrayList<ParseUser>();
 		    		/* for(int i = 0; i < gamesArray.length(); i++){
 		    			try {
@@ -176,12 +155,14 @@ public class ParseFunctions {
 		    }
 		    }
 		});
-		return gamesArray;
+		if(gamesArray != null) return gamesArray;
+		return new ArrayList();
 	}
 
 	
 	
 	public static List getUsersForGame(String gameName) {
+		System.out.println("about to get suers for gamae");
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Game");
 		query.whereEqualTo("name", gameName);
 		query.findInBackground(new FindCallback<ParseObject>() {
@@ -191,16 +172,13 @@ public class ParseFunctions {
 		        // The query was successful.
 		    	//now get users
 		    	if(objects.size() != 0) {
-		    		 JSONArray usersArray = (JSONArray) objects.get(0).get("users");
+		    		 ArrayList usersArray = (ArrayList) objects.get(0).get("users");
+		    		 System.out.println("user size is" + usersArray.size());
+		    		 users = usersArray;
 		    		 
-		    		 for(int i = 0; i < usersArray.length(); i++){
-		    			try {
-							users.add((ParseUser) usersArray.get(i));
-						} catch (JSONException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-		    		 }
+		    		 /*for(int i = 0; i < usersArray.size(); i++){
+		    			users.add((String) usersArray.get(i));
+		    		 }*/
 		    	}
 		    } else {
 		        // Something went wrong.

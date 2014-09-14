@@ -7,10 +7,27 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".UserListActivity" >
-
-    <ListView
+    
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/user_listview" ></ListView>
+        android:onClick="onClickCamera"
+        android:text="Camera" >
+
+</Button>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         >
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/user_listview" >
+        
+    </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

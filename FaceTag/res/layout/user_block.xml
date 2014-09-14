@@ -18,6 +18,7 @@
             android:paddingTop="0dp"
             android:src="@drawable/userblock" />
 
+
         <TextView
             android:id="@+id/userScore"
             android:layout_width="wrap_content"
