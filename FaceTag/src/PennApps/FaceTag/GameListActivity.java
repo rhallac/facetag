@@ -68,7 +68,7 @@ public class GameListActivity extends Activity {
 			//int score = games.get(i).getInt("");
 			String name = "not working this is default oops";
 			try {
-				name = ((JSONObject) games.get(i)).getString("name");
+				name = ((JSONObject) games.get(i)).getString("name"); 
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -102,10 +102,10 @@ public class GameListActivity extends Activity {
 			Intent start = new Intent(getApplicationContext(), UserListActivity.class);
 			startActivity(start);
 		}
-		if (v.getId() == R.id.newgame){
+		/*if (v.getId() == R.id.newgame){
 			Intent start = new Intent(getApplicationContext(), CreateGame.class);
 			startActivity(start);
-		}
+		}*/
 		return true;
 	}
 	

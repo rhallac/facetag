@@ -5,6 +5,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -12,6 +13,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import android.os.Bundle;
+import android.os.Looper;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -23,9 +25,16 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class UserListActivity extends Activity {
 	String currentGameName;
+	/*String scoreStef = "8";
+	String scoreRachel = "9";
+	String scoreBecca = "10";*/
+	TextView stefScore;
+	TextView rachelScore;
+	TextView beccaScore;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +42,8 @@ public class UserListActivity extends Activity {
 		setContentView(R.layout.activity_user_list);
 		//currentGameName = ParseFunctions.currentGam
 		currentGameName = "Awesome Game";
+		
+		
 		
 		LinearLayout layout = (LinearLayout) findViewById(R.id.user_listview);
 		/*List<String> users = ParseFunctions.getUsersForGame(currentGameName);
@@ -49,12 +60,16 @@ public class UserListActivity extends Activity {
 			((TextView) userBlock.findViewById(R.id.userName)).setText(users.get(i));
 		}*/
 		
+		
+		
+
 		//Hard coded:
 		LinearLayout userBlock = new LinearLayout(this); 
 		LayoutInflater vi = (LayoutInflater) this
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		userBlock = (LinearLayout) vi.inflate(R.layout.user_block, null);
-		((TextView) userBlock.findViewById(R.id.userScore)).setText("12");
+		beccaScore = (TextView) userBlock.findViewById(R.id.userScore);
+		((TextView) userBlock.findViewById(R.id.userScore)).setText(LoginActivity.scoreBecca);
 		((TextView) userBlock.findViewById(R.id.userName)).setText("Becca");
 		layout.addView(userBlock); 
 		
@@ -62,7 +77,8 @@ public class UserListActivity extends Activity {
 		LayoutInflater vi2 = (LayoutInflater) this
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		userBlock2 = (LinearLayout) vi2.inflate(R.layout.user_block, null);
-		((TextView) userBlock2.findViewById(R.id.userScore)).setText("9");
+		rachelScore = (TextView) userBlock.findViewById(R.id.userScore);
+		((TextView) userBlock2.findViewById(R.id.userScore)).setText(LoginActivity.scoreRachel);
 		((TextView) userBlock2.findViewById(R.id.userName)).setText("Rachel");
 		layout.addView(userBlock2);
 		
@@ -70,10 +86,13 @@ public class UserListActivity extends Activity {
 		LayoutInflater vi3 = (LayoutInflater) this
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		userBlock3 = (LinearLayout) vi3.inflate(R.layout.user_block, null);
-		String score = ((Integer) ParseUser.getCurrentUser().getInt("score")).toString();
-		((TextView) userBlock3.findViewById(R.id.userScore)).setText(score);
+		//String score = ((Integer) ParseUser.getCurrentUser().getInt("score")).toString();
+		stefScore = (TextView) userBlock.findViewById(R.id.userScore);
+		((TextView) userBlock3.findViewById(R.id.userScore)).setText(LoginActivity.scoreStef);
 		((TextView) userBlock3.findViewById(R.id.userName)).setText("Stef");
 		layout.addView(userBlock3);
+		
+		
 		
 		((Button)findViewById(R.id.camera_click)).setOnClickListener(new View.OnClickListener(){
 

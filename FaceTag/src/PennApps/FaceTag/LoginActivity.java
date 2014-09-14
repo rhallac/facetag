@@ -18,10 +18,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.parse.FindCallback;
 import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseFacebookUtils;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
@@ -33,6 +35,8 @@ public class LoginActivity extends Activity {
 	static public String sAPI_SECRET = "60UstwKt395ibLSw";
 	static Context context;
 	static String whoIsIt = "Stef";
+	static String scoreStef, scoreRachel, scoreBecca;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,63 @@ public class LoginActivity extends Activity {
 			public void onClick(View v) {
 				onLoginButtonClicked();
 			}
+		});
+		
+		ParseUser.getQuery();
+		ParseQuery<ParseUser> query = ParseUser.getQuery();
+		query.whereEqualTo("username", "Stef");
+		query.findInBackground(new FindCallback<ParseUser>() {
+		  public void done(List<ParseUser> objects, ParseException e) {
+		    if (e == null) {
+		    	if(objects.size() != 0) {
+		        System.out.println("user was" + objects.get(0));
+		    	scoreStef = ((Integer) objects.get(0).getInt("score")).toString();
+		    	///stefScore.setText(scoreStef);
+		    	}
+		    	else System.out.println("no users :(");
+		    } else {
+		        // Something went wrong.
+		    }
+		  }
+		}); 
+		
+		ParseUser.getQuery();
+		ParseQuery<ParseUser> query2 = ParseUser.getQuery();
+		query2.whereEqualTo("username", "Rachel");
+		query2.findInBackground(new FindCallback<ParseUser>() {
+		  public void done(List<ParseUser> objects, ParseException e) {
+		    if (e == null) {
+		    	if(objects.size() != 0) {
+		        System.out.println("user was" + objects.get(0));
+		        scoreRachel = ((Integer) objects.get(0).getInt("score")).toString();
+		        System.out.println("beccascore: " + scoreRachel);
+		       // rachelScore.setText(scoreRachel);
+		    	}
+		    	else System.out.println("no users :(");
+		    } else {
+		        // Something went wrong.
+		    }
+		  }
+		});
+		
+		ParseUser.getQuery();
+		ParseQuery<ParseUser> query3 = ParseUser.getQuery();
+		query3.whereEqualTo("username", "Becca");
+		query3.findInBackground(new FindCallback<ParseUser>() {
+		  public void done(List<ParseUser> objects, ParseException e) {
+		    if (e == null) {
+		    	if(objects.size() != 0) {
+		        System.out.println("user was" + objects.get(0));
+		        scoreBecca = ((Integer) ((ParseUser) objects.get(0)).getInt("score")).toString();
+		        System.out.println("beccascore: " + scoreBecca);
+		      //  beccaScore.setText(scoreBecca);
+		        
+		    	}
+		    	else System.out.println("no users :(");
+		    } else {
+		        // Something went wrong.
+		    }
+		  }
 		});
 
 		//let's test camera activity:
@@ -81,6 +142,7 @@ public class LoginActivity extends Activity {
 		String username = (String) ((EditText) findViewById(R.id.editText1)).getText().toString();
 		String pass = (String) ((EditText) findViewById(R.id.editText2)).getText().toString();
 		loginUser(username, pass);
+		//addUser(username, pass); 
 		/*Intent intent = new Intent(this, GameListActivity.class);
 		startActivity(intent);*/
 	}

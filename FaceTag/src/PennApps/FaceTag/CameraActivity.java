@@ -118,7 +118,7 @@ public class CameraActivity extends Activity {
 					taggedName = tagtext;
 					Looper.prepare();
 					LoginActivity.whoIsIt = tagtext;
-					
+				
 					((Activity) context).runOnUiThread(new Runnable() {
 						  public void run() {
 							  Toast.makeText(context, tagtext.toString(), Toast.LENGTH_LONG).show();
@@ -127,8 +127,7 @@ public class CameraActivity extends Activity {
 					          startActivity(i);
 						  }
 						});
-					
-				}
+					}
             	}
 				
 				
