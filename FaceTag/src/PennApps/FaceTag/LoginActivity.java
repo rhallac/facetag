@@ -91,7 +91,7 @@ public class LoginActivity extends Activity {
 			      // Hooray! The user is logged in.
 			    	 ParseFunctions.currentUser = ParseUser.getCurrentUser();
 			 		//sample games
-			 		//ParseFunctions.addGame("coolgamewow", ParseUser.getCurrentUser().getString("name"));
+			 		ParseFunctions.addGame("coolgamewow", ParseUser.getCurrentUser().getString("username"));
 			 		Intent intent = new Intent(context, GameListActivity.class);
 			 		 context.startActivity(intent);
 			 		

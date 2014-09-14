@@ -31,7 +31,7 @@ public class GameListActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.user_page);
 		if(ParseUser.getCurrentUser() != null) {
-		currentUserName = ParseUser.getCurrentUser().getString("name");
+		currentUserName = ParseUser.getCurrentUser().getString("username");
 		String score = ParseFunctions.currentUser.getString("score");
 		System.out.print("score is" + score);
 		

@@ -143,10 +143,12 @@ public class ParseFunctions {
 	}
 
 	
-	public static JSONArray getGamesForUser(String facebookId) {
-		ParseQuery<ParseUser> query = ParseQuery.getUserQuery();
+	public static JSONArray getGamesForUser(String username) {
+		
+		//get user from username
+		ParseQuery<ParseUser> query = ParseUser.getQuery();
 		//List<ParseUser> games = new ArrayList<ParseUser>();
-		query.whereEqualTo("name", facebookId);
+		query.whereEqualTo("username", username);
 		query.findInBackground(new FindCallback<ParseUser>() {
 			@Override
 		  public void done(List<ParseUser> objects, ParseException e) {
@@ -154,7 +156,8 @@ public class ParseFunctions {
 		        // The query was successful.
 		    	//now get users
 		    	if(objects.size() != 0) {
-		    		 gamesArray = (JSONArray) objects.get(0).get("game");
+		    		//get games
+		    		 gamesArray = (JSONArray) objects.get(0).get("games");
 		    		 //List<ParseUser> games = new ArrayList<ParseUser>();
 		    		/* for(int i = 0; i < gamesArray.length(); i++){
 		    			try {
