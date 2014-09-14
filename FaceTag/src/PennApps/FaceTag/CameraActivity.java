@@ -22,6 +22,7 @@ public class CameraActivity extends Activity {
     private static final int CAMERA_REQUEST = 1888; 
     private ImageView imageView;
     Context context;
+    public String taggedName;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,6 +60,8 @@ public class CameraActivity extends Activity {
          //    System.out.println("string is: " + string);
            // RekoSDK.face_recognize(string, callback);
             RekoSDK.face_recognize(decode, callback);
+            Intent i = new Intent(this, UserListActivity.class);
+            startActivity(i);
           // RekoSDK.face_add("Becca", decode, callback);
          //   RekoSDK.face_train(callback);
             		
@@ -101,7 +104,8 @@ public class CameraActivity extends Activity {
 					
 					System.out.println("YES TAG IS" + tag);
 					String tagtext = ("Tag!" + tag + "is it!");
-					//Toast.makeText(context, tagtext.toString(), Toast.LENGTH_LONG).show();
+					taggedName = tagtext;
+					
 				}
             	}
 				

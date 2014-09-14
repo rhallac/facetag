@@ -14,8 +14,11 @@ import com.parse.ParseUser;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
@@ -71,13 +74,23 @@ public class UserListActivity extends Activity {
 		((TextView) userBlock3.findViewById(R.id.userName)).setText("Rachel");
 		layout.addView(userBlock3);
 		
-		
-		
-		
-		
-		
-		
-		
+		((Button)findViewById(R.id.camera_click)).setOnClickListener(new View.OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				System.out.println("CLICLED CAMERA");
+				Intent start = new Intent(getApplicationContext(), CameraActivity.class);
+				startActivity(start);
+				
+			}
+		});
+	
+	}
+	
+	public boolean onCameraClick(View v) {
+		Intent intent = new Intent(this, CameraActivity.class);
+		startActivity(intent);
+		return true;
 	}
 		 
 	@Override
