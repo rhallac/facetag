@@ -113,7 +113,7 @@ public class ParseFunctions {
 		 
 	}
 	
-	public void addUserToGame(final String userName, String gameName) {
+	public static void addUserToGame(final String userName, String gameName) {
 		ParseQuery<ParseObject> query = ParseQuery.getQuery("Game");
 		query.whereEqualTo("name", gameName);
 		query.findInBackground(new FindCallback<ParseObject>() {
