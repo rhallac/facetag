@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class UserListActivity extends Activity {
@@ -27,26 +28,53 @@ public class UserListActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_user_list);
-		try {
-			currentGameName = ParseFunctions.currentGame.getString("name");
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		//currentGameName = ParseFunctions.currentGam
+		currentGameName = "Awesome Game";
 		
-		ListView layout = (ListView) findViewById(R.id.user_listview);
-		List<ParseUser> users = ParseFunctions.getUsersForGame(currentGameName);
+		LinearLayout layout = (LinearLayout) findViewById(R.id.user_listview);
+		/*List<String> users = ParseFunctions.getUsersForGame(currentGameName);
+		System.out.println("user size in listpage is" + users.size());
 		
 		for(int i = 0; i < users.size(); i++) {
 			LinearLayout userBlock = new LinearLayout(this); 
 			LayoutInflater vi = (LayoutInflater) this
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			userBlock = (LinearLayout) vi.inflate(R.layout.user_block, null);
-			int score = users.get(i).getInt("score");
+			//int score = users.get(i).getInt("score");
 			String name = users.get(i).getString("username");
 			((TextView) userBlock.findViewById(R.id.userScore)).setText(score);
-			((TextView) userBlock.findViewById(R.id.userName)).setText(name);
-		}
+			((TextView) userBlock.findViewById(R.id.userName)).setText(users.get(i));
+		}*/
+		
+		//Hard coded:
+		LinearLayout userBlock = new LinearLayout(this); 
+		LayoutInflater vi = (LayoutInflater) this
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		userBlock = (LinearLayout) vi.inflate(R.layout.user_block, null);
+		((TextView) userBlock.findViewById(R.id.userScore)).setText("12");
+		((TextView) userBlock.findViewById(R.id.userName)).setText("Becca");
+		layout.addView(userBlock);
+		
+		LinearLayout userBlock2 = new LinearLayout(this); 
+		LayoutInflater vi2 = (LayoutInflater) this
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		userBlock2 = (LinearLayout) vi2.inflate(R.layout.user_block, null);
+		((TextView) userBlock2.findViewById(R.id.userScore)).setText("9");
+		((TextView) userBlock2.findViewById(R.id.userName)).setText("Rachel");
+		layout.addView(userBlock2);
+		
+		LinearLayout userBlock3 = new LinearLayout(this); 
+		LayoutInflater vi3 = (LayoutInflater) this
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		userBlock3 = (LinearLayout) vi3.inflate(R.layout.user_block, null);
+		((TextView) userBlock3.findViewById(R.id.userScore)).setText("8");
+		((TextView) userBlock3.findViewById(R.id.userName)).setText("Rachel");
+		layout.addView(userBlock3);
+		
+		
+		
+		
+		
 		
 		
 		

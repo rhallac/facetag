@@ -40,6 +40,17 @@ public class GameListActivity extends Activity {
 		((TextView) findViewById(R.id.userName)).setText(currentUserName);
 		((TextView) findViewById(R.id.userScore)).setText(score);
 		
+		(findViewById(R.id.group)).setOnClickListener(new View.OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				System.out.println("CLICLED");
+				Intent start = new Intent(getApplicationContext(), UserListActivity.class);
+				startActivity(start);
+				
+			}
+		});
+		
 		
 		ListView layout = (ListView) findViewById(R.id.user_listview);
 		ArrayList games = ParseFunctions.getGamesForUser(currentUserName);
@@ -73,6 +84,14 @@ public class GameListActivity extends Activity {
 		return true;
 	}
 
+	public boolean onGroupClick(View v) {
+		System.out.println("group click");
+		Intent start = new Intent(this, UserListActivity.class);
+		startActivity(start);
+		return true;	
+	}
+	
+
 	public boolean onClick(View v){
 		System.out.println("on click ");
 		//check which button is clicked
@@ -86,4 +105,6 @@ public class GameListActivity extends Activity {
 		}
 		return true;
 	}
+	
+	
 }

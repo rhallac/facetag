@@ -22,7 +22,7 @@ public class ParseFunctions {
 	//private static List<ParseUser> games = new ArrayList<ParseUser>();
 	public static ParseUser currentUser;
 	public static JSONObject currentGame;
-	static List<ParseUser> users = new ArrayList<ParseUser>();
+	static List<String> users = new ArrayList<String>();
 	static ArrayList gamesArray;
 
 	//moved to loginactivity
@@ -172,17 +172,13 @@ public class ParseFunctions {
 		        // The query was successful.
 		    	//now get users
 		    	if(objects.size() != 0) {
-		    		 JSONArray usersArray = (JSONArray) objects.get(0).get("users");
-		    		 System.out.println("user size is" + usersArray.length());
+		    		 ArrayList usersArray = (ArrayList) objects.get(0).get("users");
+		    		 System.out.println("user size is" + usersArray.size());
+		    		 users = usersArray;
 		    		 
-		    		 for(int i = 0; i < usersArray.length(); i++){
-		    			try {
-							users.add((ParseUser) usersArray.get(i));
-						} catch (JSONException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-		    		 }
+		    		 /*for(int i = 0; i < usersArray.size(); i++){
+		    			users.add((String) usersArray.get(i));
+		    		 }*/
 		    	}
 		    } else {
 		        // Something went wrong.
