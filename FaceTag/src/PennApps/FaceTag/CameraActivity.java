@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
@@ -45,6 +46,8 @@ public class CameraActivity extends Activity {
             Bitmap photo = (Bitmap) data.getExtras().get("data"); 
             imageView.setImageBitmap(photo);
             
+            Toast.makeText(this, "Please wait a moment...", Toast.LENGTH_LONG);
+            
             //and do face rec stuff here
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             photo.compress(Bitmap.CompressFormat.PNG, 100, stream);
@@ -60,8 +63,8 @@ public class CameraActivity extends Activity {
          //    System.out.println("string is: " + string);
            // RekoSDK.face_recognize(string, callback);
             RekoSDK.face_recognize(decode, callback);
-            Intent i = new Intent(this, UserListActivity.class);
-            startActivity(i);
+         //   Intent i = new Intent(this, UserListActivity.class);
+           // startActivity(i);
           // RekoSDK.face_add("Becca", decode, callback);
          //   RekoSDK.face_train(callback);
             		
@@ -70,8 +73,8 @@ public class CameraActivity extends Activity {
         }  
     }  
     
-    RekoSDK.APICallback callback = new RekoSDK.APICallback(){
-        public void gotResponse(String sResponse){
+    RekoSDK.APICallback callback = new RekoSDK.APICallback() { 
+        public void gotResponse(String sResponse) {
             System.out.print("omg omg omg " + sResponse);
             try {
             	if(sResponse != null) {
@@ -103,8 +106,17 @@ public class CameraActivity extends Activity {
 					System.out.println("tag substring is" + tag);
 					
 					System.out.println("YES TAG IS" + tag);
-					String tagtext = ("Tag!" + tag + "is it!");
+					final String tagtext = ("Tag!" + tag + "is it!");
 					taggedName = tagtext;
+					Looper.prepare();
+					
+					((Activity) context).runOnUiThread(new Runnable() {
+						  public void run() {
+							  Toast.makeText(context, tagtext.toString(), Toast.LENGTH_LONG).show();
+							  Intent i = new Intent(context, UserListActivity.class);
+					          startActivity(i);
+						  }
+						});
 					
 				}
             	}
@@ -117,4 +129,5 @@ public class CameraActivity extends Activity {
            
         }
     };
+   
 }
