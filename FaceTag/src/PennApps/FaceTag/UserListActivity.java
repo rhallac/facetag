@@ -112,6 +112,14 @@ public class UserListActivity extends Activity {
 		startActivity(intent);
 		return true;
 	}
+	
+	
+	
+	public boolean onClickHome(View v) {
+		Intent intent = new Intent(this, GameListActivity.class);
+		startActivity(intent);
+		return true;
+	}
 		 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
