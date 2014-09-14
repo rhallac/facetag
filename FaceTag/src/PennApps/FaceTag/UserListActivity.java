@@ -14,8 +14,11 @@ import com.parse.ParseUser;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
@@ -53,7 +56,7 @@ public class UserListActivity extends Activity {
 		userBlock = (LinearLayout) vi.inflate(R.layout.user_block, null);
 		((TextView) userBlock.findViewById(R.id.userScore)).setText("12");
 		((TextView) userBlock.findViewById(R.id.userName)).setText("Becca");
-		layout.addView(userBlock);
+		layout.addView(userBlock); 
 		
 		LinearLayout userBlock2 = new LinearLayout(this); 
 		LayoutInflater vi2 = (LayoutInflater) this
@@ -68,16 +71,26 @@ public class UserListActivity extends Activity {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		userBlock3 = (LinearLayout) vi3.inflate(R.layout.user_block, null);
 		((TextView) userBlock3.findViewById(R.id.userScore)).setText("8");
-		((TextView) userBlock3.findViewById(R.id.userName)).setText("Rachel");
+		((TextView) userBlock3.findViewById(R.id.userName)).setText("Stef");
 		layout.addView(userBlock3);
 		
-		
-		
-		
-		
-		
-		
-		
+		((Button)findViewById(R.id.camera_click)).setOnClickListener(new View.OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				System.out.println("CLICLED CAMERA");
+				Intent start = new Intent(getApplicationContext(), CameraActivity.class);
+				startActivity(start);
+				
+			}
+		});
+	
+	}
+	
+	public boolean onCameraClick(View v) {
+		Intent intent = new Intent(this, CameraActivity.class);
+		startActivity(intent);
+		return true;
 	}
 		 
 	@Override

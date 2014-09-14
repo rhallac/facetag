@@ -6,27 +6,32 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".UserListActivity" >
-    
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onClickCamera"
-        android:text="Camera" >
-
-</Button>
-
+    tools:context=".UserListActivity" 
+    android:background="@drawable/gamescreen">
+ 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true" >
-    
+         >
+             
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:id="@+id/user_listview" >
+        
+      <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickCamera"
+        android:text="CAMERA"
+        android:clickable="true"
+        android:background="#F7931D"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:id="@+id/camera_click" >
+
+		</Button>
         
     </LinearLayout>
     </ScrollView>
