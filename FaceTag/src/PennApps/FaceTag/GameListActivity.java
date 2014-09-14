@@ -34,11 +34,14 @@ public class GameListActivity extends Activity {
 		setContentView(R.layout.user_page);
 		if(ParseUser.getCurrentUser() != null) {
 		currentUserName = ParseUser.getCurrentUser().getUsername();
-		String score = ParseFunctions.currentUser.getString("score");
-		System.out.print("score is" + score);
-		
+		//String score = ParseFunctions.currentUser.getString("score");
+		//System.out.print("score is" + score);
+		String score = ((Integer) ParseUser.getCurrentUser().getInt("score")).toString();
 		((TextView) findViewById(R.id.userName)).setText(currentUserName);
 		((TextView) findViewById(R.id.userScore)).setText(score);
+		
+		((TextView) findViewById(R.id.whoIt)).setText(LoginActivity.whoIsIt);
+		
 		
 		(findViewById(R.id.group)).setOnClickListener(new View.OnClickListener(){
 
@@ -56,7 +59,7 @@ public class GameListActivity extends Activity {
 		ArrayList games = ParseFunctions.getGamesForUser(currentUserName);
 		System.out.println("game size is" + games.size());
 		
-		for(int i = 0; i < games.size(); i++) {
+		/*for(int i = 0; i < games.size(); i++) {
 			
 			LinearLayout gameBlock = new LinearLayout(this); 
 			LayoutInflater vi = (LayoutInflater) this
@@ -72,7 +75,7 @@ public class GameListActivity extends Activity {
 			}
 			//((TextView) userBlock.findViewById(R.id.userScore)).setText(score);
 			((TextView) gameBlock.findViewById(R.id.groupName)).setText(name);
-		}
+		}*/
 		}
 		
 	}

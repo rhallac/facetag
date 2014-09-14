@@ -32,6 +32,7 @@ public class LoginActivity extends Activity {
 	static public String sAPI_KEY = "ulUhVjwOQE6RElyv";
 	static public String sAPI_SECRET = "60UstwKt395ibLSw";
 	static Context context;
+	static String whoIsIt = "Stef";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
